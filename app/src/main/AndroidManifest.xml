@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPetShop">
+        <activity android:name=".cart.CartActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,6 @@
         </activity>
         <activity android:name=".store.StoreActivity" />
         <activity android:name=".detailproduct.DetailProductActivity" />
-
     </application>
 
 </manifest>

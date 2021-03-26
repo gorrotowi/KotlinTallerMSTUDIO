@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mobilestudio.mypetshop.R
 import com.mobilestudio.mypetshop.adapters.AdapterCategory
 import com.mobilestudio.mypetshop.adapters.AdapterProducts
+import com.mobilestudio.mypetshop.cart.CartActivity
 import com.mobilestudio.mypetshop.databinding.ActivityStoreBinding
 import com.mobilestudio.mypetshop.detailproduct.DetailProductActivity
 import com.mobilestudio.mypetshop.models.Product
@@ -41,7 +42,8 @@ class StoreActivity : AppCompatActivity() {
 
     private fun setUpActions() {
         binding.btnShopCar.setOnClickListener {
-            viewModel.getAllCartProducts()
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
         }
 
         adapterProducts.setOnItemClick { product ->

@@ -8,12 +8,12 @@ import androidx.room.PrimaryKey
 data class Product(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val name: String,
-    val price: Int,
-    val description: String,
+    val name: String = "",
+    val price: Int = 0,
+    val description: String = "",
     @ColumnInfo(name = "shortDesc")
-    val shortDescription: String,
-    val quantity: Int,
-    val img: String,
-    val isFav: Boolean
+    val shortDescription: String = "",
+    val quantity: Int = 1,
+    val img: String = "",
+    val isFav: Boolean = false
 )

@@ -1,5 +1,6 @@
 package com.mobilestudio.localstorage.dao
 
+import android.util.Log
 import androidx.room.*
 import com.mobilestudio.localstorage.entities.Product
 
@@ -10,7 +11,7 @@ interface ProductsDao {
     suspend fun getAllProducts(): List<Product>
 
     @Query("SELECT * FROM PetProduct WHERE id == :identifier")
-    suspend fun getProductById(identifier: Int): Product
+    suspend fun getProductById(identifier: Int): Product?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addProduct(product: Product)
@@ -23,6 +24,14 @@ interface ProductsDao {
 
     @Delete
     suspend fun removeProduct(product: Product)
+
+    @Transaction
+    suspend fun removeProductAndConfirm(product: Product): Boolean {
+        removeProduct(product)
+        val data = getProductById(product.id)
+        Log.e("DB", "$data")
+        return data == null
+    }
 
     @Transaction
     suspend fun updateAllQuantityToNew(newQuantity: Int): List<Product> {
