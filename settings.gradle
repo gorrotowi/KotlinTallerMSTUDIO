@@ -1,5 +1,2 @@
-include ':network'
-include ':repository'
-include ':localstorage'
 include ':app'
-rootProject.name = "MyPetShop"
+rootProject.name = "Where am I"
